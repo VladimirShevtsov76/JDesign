@@ -10,6 +10,7 @@
 		B1D03BA62723F3D3008D7A3F /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */; };
 		B1D03BA927242308008D7A3F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D03BA727242308008D7A3F /* ImageCollectionViewCell.swift */; };
 		B1D03BAA27242308008D7A3F /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D03BA827242308008D7A3F /* ImageCollectionViewCell.xib */; };
+		B1D03BAC27249AC5008D7A3F /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D03BAB27249AC5008D7A3F /* Arrays.swift */; };
 		B1D07CC8271ACB4B00378A0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D07CC7271ACB4B00378A0C /* AppDelegate.swift */; };
 		B1D07CCA271ACB4B00378A0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D07CC9271ACB4B00378A0C /* SceneDelegate.swift */; };
 		B1D07CCC271ACB4B00378A0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D07CCB271ACB4B00378A0C /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
 		B1D03BA727242308008D7A3F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1D03BA827242308008D7A3F /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1D03BAB27249AC5008D7A3F /* Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		B1D07CC4271ACB4B00378A0C /* JDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D07CC7271ACB4B00378A0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D07CC9271ACB4B00378A0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */,
+				B1D03BAB27249AC5008D7A3F /* Arrays.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			files = (
 				B1D03BA927242308008D7A3F /* ImageCollectionViewCell.swift in Sources */,
 				B1D07CD2271ACB4B00378A0C /* JDesign.xcdatamodeld in Sources */,
+				B1D03BAC27249AC5008D7A3F /* Arrays.swift in Sources */,
 				B1D03BA62723F3D3008D7A3F /* Dictionaries.swift in Sources */,
 				B1D07CCC271ACB4B00378A0C /* ViewController.swift in Sources */,
 				B1D07CC8271ACB4B00378A0C /* AppDelegate.swift in Sources */,
