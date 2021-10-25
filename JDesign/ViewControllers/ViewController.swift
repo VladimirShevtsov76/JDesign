@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         typeView.dataSource = self
         typeView.delegate   = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.incomingNotification(_:)), name:  NSNotification.Name(rawValue: "myNoteKey"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.incomingNotification(_:)), name:  NSNotification.Name(rawValue: "currentImage"), object: nil)
         
         //let fullArray = getSourceStringArray()
         
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             mainImage.image = imagesType[text-1]            // do something with your text
         }
     }
-    
+   
     
     fileprivate func setGestures() {
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureR(gesture:)))
