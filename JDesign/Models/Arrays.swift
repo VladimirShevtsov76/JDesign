@@ -5,15 +5,13 @@
 //  Created by Vladimir Shevtsov on 23.10.2021.
 //
 
-func getSourceStringArray() -> Any {
+public func arrayFiltererd(color: String, type: String, gem: String) -> Any {
     
-    var stringArray: [Any] = [["1","001","00001","01","01","001"]]
-    stringArray.removeAll()
+    //let text  = "001.00032.02.01.001"
+    //let index = "1234567891111111111"
+    //            "         0123456789"
     
-    for i in 0...jImages.count-1 {
-        
-        stringArray.append(["1","001","00001","01","01","001"])
-    }
+    let jdImagesFiltered = jdImages.filter({ $0[1][$0[1].index($0[1].startIndex, offsetBy: 12)...$0[1].index($0[1].startIndex, offsetBy: 15)] == color})
     
-    return stringArray
+    return jdImagesFiltered
 }

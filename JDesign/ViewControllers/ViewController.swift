@@ -9,18 +9,21 @@ import UIKit
 
 let myNoteKey = "com.andrewcbancroft.specialNotificationKey"
 
-class ViewController: UIViewController {
+class ViewController: UIViewController  {
     
     public var imageNumber = 1
     public var imageColor  = 1
     var imagesType = [UIImage]()
     
-    @IBOutlet var mainView: UIView!
-    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet var       mainView:   UIView!
+    @IBOutlet weak var  mainImage:  UIImageView!
     
-    @IBOutlet weak var kitView: UICollectionView!
-    @IBOutlet weak var colorView: UICollectionView!
-    @IBOutlet weak var typeView: UICollectionView!
+    @IBOutlet weak var  kitView:    UICollectionView!
+    @IBOutlet weak var  typeView:   UICollectionView!
+    
+    @IBOutlet weak var  picker:     UIPickerView!
+    
+    var pickerData = [jdColors, jdGems]
     
     override func viewDidLoad() {
         
@@ -31,23 +34,26 @@ class ViewController: UIViewController {
         typeView.dataSource = self
         typeView.delegate   = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.incomingNotification(_:)), name:  NSNotification.Name(rawValue: "currentImage"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.jdSetMainImage(_:)), name:  NSNotification.Name(rawValue: "jdSetMainImage"), object: nil)
         
-        //let fullArray = getSourceStringArray()
-        
+        // Load typeView dataSource
         for i in 0...22 {
             let image = UIImage(named: "\(i+1)")!
             imagesType.append(image)
         }
         
+        // Load pickerDatasource
+        self.picker.delegate = self
+        self.picker.dataSource = self
+                
     }
     
-    @objc func incomingNotification(_ notification: Notification) {
+    @objc func jdSetMainImage(_ notification: Notification) {
         if let text = notification.userInfo?["text"] as? Int {
             mainImage.image = imagesType[text-1]            // do something with your text
         }
     }
-   
+    
     
     fileprivate func setGestures() {
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureR(gesture:)))
@@ -91,8 +97,13 @@ class ViewController: UIViewController {
         let image = "img_\(imageNumber)_\(imageColor)"
         mainImage.image = UIImage(named: image)
     }
+    
+    @IBAction func jdSetTypes(_ sender: Any, type: String) {
+        
+    }
 }
 
+//typeView extensions
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesType.count
@@ -107,3 +118,26 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 }
 
+//picker extensions
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // Number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData[component].count
+    }
+    
+    // The data to return fopr the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[component][row][1]
+    }
+}

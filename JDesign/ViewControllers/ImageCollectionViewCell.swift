@@ -25,7 +25,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             backgroundColor = isSelected ? .black : .clear
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "currentImage"), object: nil, userInfo: ["text": self.tag])
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "jdSetMainImage"), object: nil, userInfo: ["text": self.tag])
         }
     }
 }
