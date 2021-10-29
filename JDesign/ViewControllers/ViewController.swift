@@ -7,21 +7,31 @@
 import Foundation
 import UIKit
 
-let myNoteKey = "com.andrewcbancroft.specialNotificationKey"
+let myNoteKey = "com.vladimirshevtsov.specialNotificationKey"
 
 class ViewController: UIViewController  {
     
-    public var imageNumber = 1
-    public var imageColor  = 1
+    var imageNumber = 1
+    var imageColor  = 1
+    
+    var jdColor = jdColors[0][1]
+    var jdType  = jdTypes[0][1]
+    var jdGem   = jdGems[0][1]
+    
     var imagesType = [UIImage]()
     
-    @IBOutlet var       mainView:   UIView!
-    @IBOutlet weak var  mainImage:  UIImageView!
+    var filteredJdImages = jdImages
     
-    @IBOutlet weak var  kitView:    UICollectionView!
-    @IBOutlet weak var  typeView:   UICollectionView!
+    @IBOutlet var       mainView:    UIView!
+    @IBOutlet weak var  mainImage:   UIImageView!
     
-    @IBOutlet weak var  picker:     UIPickerView!
+    @IBOutlet weak var  kitView:     UICollectionView!
+    @IBOutlet weak var  typeView:    UICollectionView!
+    
+    @IBOutlet weak var  typeSegment: UISegmentedControl!
+    @IBOutlet weak var  picker:      UIPickerView!
+    
+    @IBOutlet weak var currentArticul: UILabel!
     
     var pickerData = [jdColors, jdGems]
     
@@ -37,29 +47,51 @@ class ViewController: UIViewController  {
         NotificationCenter.default.addObserver(self, selector: #selector(self.jdSetMainImage(_:)), name:  NSNotification.Name(rawValue: "jdSetMainImage"), object: nil)
         
         // Load typeView dataSource
-        for i in 0...22 {
-            let image = UIImage(named: "\(i+1)")!
+        refreshTypeView()
+        
+        // Load pickerDatasource
+        self.picker.delegate   = self
+        self.picker.dataSource = self
+        
+    }
+    
+    @IBAction func changeTypeSegment(_ sender: Any) {
+        jdType = jdTypes[typeSegment.selectedSegmentIndex][1]
+        refreshTypeView()
+    }
+    
+    
+    //Main refres func of typeView
+    func refreshTypeView() {
+        filteredJdImages = arrayFiltererd(jdColor: jdColor, jdType: jdType, jdGem: jdGem) as! [[String]]
+        imagesType.removeAll()
+        
+        for index in filteredJdImages.indices {
+            let image = UIImage(named: "\(filteredJdImages[index][0])")!
             imagesType.append(image)
         }
         
-        // Load pickerDatasource
-        self.picker.delegate = self
-        self.picker.dataSource = self
-                
+        typeView.reloadData()
+        
     }
     
     @objc func jdSetMainImage(_ notification: Notification) {
-        if let text = notification.userInfo?["text"] as? Int {
-            mainImage.image = imagesType[text-1]            // do something with your text
+        if var text = notification.userInfo?["text"] as? Int {
+            if (text-1) >= imagesType.count {
+                text = 1
+            }
+            mainImage.image = imagesType[text-1]
+            currentArticul.text = filteredJdImages[text-1][1]
         }
     }
     
     
+    //************************************
     fileprivate func setGestures() {
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureR(gesture:)))
-        let swipeLeftGesture  = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureL(gesture:)))
-        let swipeUpGesture    = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureUp(gesture:)))
-        let swipeDownGesture  = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureDown(gesture:)))
+        let swipeRightGesture       = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureR(gesture:)))
+        let swipeLeftGesture        = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureL(gesture:)))
+        let swipeUpGesture          = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureUp(gesture:)))
+        let swipeDownGesture        = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureDown(gesture:)))
         swipeRightGesture.direction = UISwipeGestureRecognizer.Direction.right
         swipeLeftGesture.direction  = UISwipeGestureRecognizer.Direction.left
         swipeUpGesture.direction    = UISwipeGestureRecognizer.Direction.up
@@ -98,9 +130,7 @@ class ViewController: UIViewController  {
         mainImage.image = UIImage(named: image)
     }
     
-    @IBAction func jdSetTypes(_ sender: Any, type: String) {
-        
-    }
+    
 }
 
 //typeView extensions

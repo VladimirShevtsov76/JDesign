@@ -12,7 +12,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JDesign" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -89,24 +89,35 @@
                                 </cells>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kes-id-nRE">
-                                <rect key="frame" x="16" y="444" width="272" height="32"/>
+                                <rect key="frame" x="16" y="464" width="272" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Кольца"/>
                                     <segment title="Серьги"/>
                                     <segment title="Кулоны"/>
+                                    <segment title="Сосуд любви"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeTypeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="BAb-zX-Dz6"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtE-i0-vcI">
+                                <rect key="frame" x="8" y="137" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="eH2-JO-Xzl">
-                                <rect key="frame" x="8" y="147" width="288" height="289"/>
+                                <rect key="frame" x="4" y="167" width="288" height="289"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="xGK-dr-ZZe" appends="YES" id="Fbt-Ee-rGn"/>
                                 </connections>
                             </imageView>
-                            <pickerView contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53F-L1-QYa">
-                                <rect key="frame" x="16" y="483" width="272" height="90"/>
+                            <pickerView contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53F-L1-QYa" customClass="PickerViewController" customModule="JDesign" customModuleProvider="target">
+                                <rect key="frame" x="16" y="512" width="272" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -116,9 +127,11 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="currentArticul" destination="rtE-i0-vcI" id="eeM-fk-n5u"/>
                         <outlet property="mainImage" destination="eH2-JO-Xzl" id="ggD-bG-BbM"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="C1i-mP-KgM"/>
                         <outlet property="picker" destination="53F-L1-QYa" id="OFx-xw-JtR"/>
+                        <outlet property="typeSegment" destination="Kes-id-nRE" id="rzq-jn-MCZ"/>
                         <outlet property="typeView" destination="xrz-pV-C01" id="y5v-JZ-pRF"/>
                     </connections>
                 </viewController>
