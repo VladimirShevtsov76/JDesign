@@ -109,10 +109,10 @@
 		B1D03BA32723F1A9008D7A3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1D07CCB271ACB4B00378A0C /* ViewController.swift */,
-				B1DA7B11272C9EE4005194E6 /* PickerViewController.swift */,
 				B1D03BA727242308008D7A3F /* ImageCollectionViewCell.swift */,
 				B1D03BA827242308008D7A3F /* ImageCollectionViewCell.xib */,
+				B1DA7B11272C9EE4005194E6 /* PickerViewController.swift */,
+				B1D07CCB271ACB4B00378A0C /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

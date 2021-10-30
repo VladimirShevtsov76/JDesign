@@ -44,7 +44,7 @@ class ViewController: UIViewController  {
         typeView.dataSource = self
         typeView.delegate   = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.jdSetMainImage(_:)), name:  NSNotification.Name(rawValue: "jdSetMainImage"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.jdSetMainImage(_:)), name:  NSNotification.Name(rawValue: myNoteKey), object: nil)
         
         // Load typeView dataSource
         refreshTypeView()
@@ -55,11 +55,11 @@ class ViewController: UIViewController  {
         
     }
     
+       
     @IBAction func changeTypeSegment(_ sender: Any) {
         jdType = jdTypes[typeSegment.selectedSegmentIndex][1]
         refreshTypeView()
     }
-    
     
     //Main refres func of typeView
     func refreshTypeView() {

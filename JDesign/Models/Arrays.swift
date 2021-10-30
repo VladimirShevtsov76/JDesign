@@ -8,8 +8,8 @@
 public func arrayFiltererd(jdColor: String, jdType: String, jdGem: String) -> Any {
     
     //let text  = "001.00032.02.01.001"
-    //let index = "01234567891111111111"
-    //            "          0123456789"
+    //let index = "0123456789111111111"
+    //            "          012345678"
     var jdImagesFiltered = jdImages
     
     //Filtered by type
