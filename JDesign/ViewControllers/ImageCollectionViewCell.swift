@@ -21,11 +21,43 @@ class ImageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? .black : .clear
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["text": self.tag])
+            if self.reuseIdentifier == "cellImage" {
+                backgroundColor = isSelected ? .black : .clear
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": self.tag])
+                
+            } else if self.reuseIdentifier == "cellCostType" {
+                backgroundColor = isSelected ? .orange : .clear
+                let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
+                
+                var labelText = ""
+                for label in labels {
+                    labelText = label.text!
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setCostType": labelText])
+                
+            } else if self.reuseIdentifier == "cellColor" {
+                backgroundColor = isSelected ? .orange : .clear
+                let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
+                
+                var labelText = ""
+                for label in labels {
+                    labelText = label.text!
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setColor": labelText])
+                
+            } else if self.reuseIdentifier == "cellGem" {
+                backgroundColor = isSelected ? .orange : .clear
+                let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
+                
+                var labelText = ""
+                for label in labels {
+                    labelText = label.text!
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setGem": labelText])
+            }
         }
     }
 }

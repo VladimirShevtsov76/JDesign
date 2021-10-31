@@ -21,7 +21,6 @@
 		B1D07CE2271ACB4D00378A0C /* JDesignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D07CE1271ACB4D00378A0C /* JDesignTests.swift */; };
 		B1D07CEC271ACB4D00378A0C /* JDesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D07CEB271ACB4D00378A0C /* JDesignUITests.swift */; };
 		B1D07CEE271ACB4D00378A0C /* JDesignUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D07CED271ACB4D00378A0C /* JDesignUITestsLaunchTests.swift */; };
-		B1DA7B12272C9EE4005194E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA7B11272C9EE4005194E6 /* PickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		B1D07CE7271ACB4D00378A0C /* JDesignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDesignUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D07CEB271ACB4D00378A0C /* JDesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDesignUITests.swift; sourceTree = "<group>"; };
 		B1D07CED271ACB4D00378A0C /* JDesignUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDesignUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B1DA7B11272C9EE4005194E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +109,6 @@
 			children = (
 				B1D03BA727242308008D7A3F /* ImageCollectionViewCell.swift */,
 				B1D03BA827242308008D7A3F /* ImageCollectionViewCell.xib */,
-				B1DA7B11272C9EE4005194E6 /* PickerViewController.swift */,
 				B1D07CCB271ACB4B00378A0C /* ViewController.swift */,
 			);
 			path = ViewControllers;
@@ -311,7 +308,6 @@
 			files = (
 				B1D03BA927242308008D7A3F /* ImageCollectionViewCell.swift in Sources */,
 				B1D07CD2271ACB4B00378A0C /* JDesign.xcdatamodeld in Sources */,
-				B1DA7B12272C9EE4005194E6 /* PickerViewController.swift in Sources */,
 				B1D03BAC27249AC5008D7A3F /* Arrays.swift in Sources */,
 				B1D03BA62723F3D3008D7A3F /* Dictionaries.swift in Sources */,
 				B1D07CCC271ACB4B00378A0C /* ViewController.swift in Sources */,
