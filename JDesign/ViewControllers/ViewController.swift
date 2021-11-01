@@ -19,21 +19,22 @@ class ViewController: UIViewController  {
     var jdGem   = jdGems[0][1]
     
     var imagesType = [UIImage]()
+    var imagesKit  = [UIImage]()
     
     var filteredJdImages = jdImages
     
     @IBOutlet var       mainView:        UIView!
     @IBOutlet weak var  mainImage:       UIImageView!
-        
+    
     @IBOutlet weak var  kitView:         UICollectionView!
     @IBOutlet weak var  typeView:        UICollectionView!
-        
+    
     @IBOutlet weak var  selectCostType:  UICollectionView!
     @IBOutlet weak var  selectColor:     UICollectionView!
     @IBOutlet weak var  selectGem:       UICollectionView!
     
     @IBOutlet weak var  currentArticul:  UILabel!
-            
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -42,6 +43,10 @@ class ViewController: UIViewController  {
         
         typeView.dataSource       = self
         typeView.delegate         = self
+        
+        kitView.dataSource        = self
+        kitView.delegate          = self
+        
         selectCostType.dataSource = self
         selectCostType.delegate   = self
         selectColor.dataSource    = self
@@ -49,8 +54,6 @@ class ViewController: UIViewController  {
         selectGem.dataSource      = self
         selectGem.delegate        = self
         
-        //        kitView.dataSource = self
-        //        kitView.delegate   = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.processingMessage(_:)), name:  NSNotification.Name(rawValue: myNoteKey), object: nil)
         
@@ -59,7 +62,7 @@ class ViewController: UIViewController  {
         
     }
     
-            
+    
     //Main refres func of typeView
     func refreshTypeView() {
         filteredJdImages = arrayFiltererd(jdColor: jdColor, jdType: jdType, jdGem: jdGem) as! [[String]]
@@ -154,6 +157,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         if collectionView == typeView {
             return imagesType.count
             
+        } else if collectionView == kitView {
+            return imagesType.count
+            
         } else if collectionView == selectCostType {
             return jdTypes.count
         } else if collectionView == selectColor {
@@ -168,6 +174,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == typeView {
+            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cellImage", for: indexPath) as! ImageCollectionViewCell
+            let image = imagesType[indexPath.item]
+            cell.tag  = indexPath.item + 1 //name of image file
+            cell.photoView.image = image
+            return cell
+            
+        } else if collectionView == kitView {
             let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cellImage", for: indexPath) as! ImageCollectionViewCell
             let image = imagesType[indexPath.item]
             cell.tag  = indexPath.item + 1 //name of image file
