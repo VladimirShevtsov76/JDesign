@@ -55,7 +55,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
                 var labelText = ""
                 for label in labels {
                     labelText = label.text!
-                }
+                    label.backgroundColor = .darkGray
+            }
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setGem": labelText])
             }
         }

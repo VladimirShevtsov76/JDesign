@@ -194,10 +194,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.contentView.subviews[0].removeFromSuperview()
             }
             let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-            title.textColor     = UIColor.blue
+            title.textColor     = UIColor.white
             title.font          = UIFont.systemFont(ofSize: 14)
             title.text          = jdTypes[indexPath.item][1]
             title.textAlignment = .center
+            title.adjustsFontSizeToFitWidth = true
+            title.numberOfLines = 2
+            title.backgroundColor = .lightGray
             cell.contentView.addSubview(title)
             return cell
             
@@ -208,10 +211,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.contentView.subviews[0].removeFromSuperview()
             }
             let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-            title.textColor     = UIColor.blue
+            title.textColor     = UIColor.white
             title.font          = UIFont.systemFont(ofSize: 14)
             title.text          = jdColors[indexPath.item][1]
             title.textAlignment = .center
+            title.adjustsFontSizeToFitWidth = true
+            title.numberOfLines = 2
+            title.backgroundColor = .lightGray
             cell.contentView.addSubview(title)
             return cell
             
@@ -222,10 +228,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.contentView.subviews[0].removeFromSuperview()
             }
             let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-            title.textColor     = UIColor.blue
+            title.textColor     = UIColor.white
             title.font          = UIFont.systemFont(ofSize: 14)
             title.text          = jdGems[indexPath.item][1]
             title.textAlignment = .center
+            title.adjustsFontSizeToFitWidth = true
+            title.numberOfLines = 2
+            title.backgroundColor = .lightGray
             cell.contentView.addSubview(title)
             return cell
         }
