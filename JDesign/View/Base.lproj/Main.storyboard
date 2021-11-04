@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xrz-pV-C01">
-                                <rect key="frame" x="305" y="44" width="80" height="632"/>
+                                <rect key="frame" x="329" y="44" width="80" height="684"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="JHw-ym-sUp"/>
@@ -31,7 +31,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="FcV-Nj-OwN" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
-                                        <rect key="frame" x="-1.6666666666666667" y="0.0" width="83" height="77"/>
+                                        <rect key="frame" x="-1.5" y="0.0" width="83" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Q6n-Tq-aQs">
                                             <rect key="frame" x="0.0" y="0.0" width="83" height="77"/>
@@ -56,7 +56,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DnQ-h1-qIa" customClass="KitView" customModule="JDesign" customModuleProvider="target">
-                                <rect key="frame" x="5" y="44" width="295" height="80"/>
+                                <rect key="frame" x="5" y="44" width="319" height="80"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="MfG-Ud-dAL"/>
@@ -70,7 +70,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="Sxh-qE-qmJ" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1.6666666666666667" width="83" height="77"/>
+                                        <rect key="frame" x="0.0" y="1.5" width="83" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="eks-tC-uZO">
                                             <rect key="frame" x="0.0" y="0.0" width="83" height="77"/>
@@ -95,7 +95,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtE-i0-vcI">
-                                <rect key="frame" x="5" y="134" width="295" height="20"/>
+                                <rect key="frame" x="5" y="134" width="319" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="r08-KH-pSc"/>
                                 </constraints>
@@ -112,7 +112,7 @@
                                 </connections>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HXw-Wv-sX2">
-                                <rect key="frame" x="5" y="581" width="295" height="40"/>
+                                <rect key="frame" x="5" y="633" width="319" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AdF-ao-Xhf"/>
@@ -138,7 +138,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vPv-IV-Wk7">
-                                <rect key="frame" x="5" y="631" width="295" height="40"/>
+                                <rect key="frame" x="5" y="683" width="319" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lLw-ic-kjT"/>
@@ -164,7 +164,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ehb-UT-c0N">
-                                <rect key="frame" x="5" y="681" width="295" height="80"/>
+                                <rect key="frame" x="5" y="733" width="319" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="np9-8s-c4q"/>
@@ -190,7 +190,7 @@
                                 </cells>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JDesign" translatesAutoresizingMaskIntoConstraints="NO" id="OdQ-Ri-PHs">
-                                <rect key="frame" x="305" y="681" width="80" height="80"/>
+                                <rect key="frame" x="329" y="733" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="unc-Vg-10p"/>
                                     <constraint firstAttribute="height" constant="80" id="vDk-wm-7ld"/>
@@ -239,7 +239,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="xGK-dr-ZZe"/>
             </objects>
-            <point key="canvasLocation" x="170.76923076923077" y="-209.00473933649289"/>
+            <point key="canvasLocation" x="-204" y="-208"/>
         </scene>
     </scenes>
     <resources>
