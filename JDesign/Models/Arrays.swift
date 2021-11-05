@@ -30,3 +30,4 @@ public func arrayFiltererd(jdColor: String, jdType: String, jdGem: String) -> An
     
     return jdImagesFiltered
 }
+

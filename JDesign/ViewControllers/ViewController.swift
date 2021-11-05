@@ -18,8 +18,9 @@ class ViewController: UIViewController  {
     var jdType  = jdTypes[0][1]
     var jdGem   = jdGems[0][1]
     
-    var imagesType = [UIImage]()
-    var imagesKit  = [UIImage]()
+    var imagesType  = [UIImage]()
+    var imagesKit   = [UIImage]()
+    var imagesColor = [UIImage]()
     
     var filteredJdImages = jdImages
     
@@ -57,6 +58,12 @@ class ViewController: UIViewController  {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.processingMessage(_:)), name:  NSNotification.Name(rawValue: myNoteKey), object: nil)
         
+        //load color select images for buttons
+        for index in jdColors.indices {
+            let image = UIImage(named: "\(jdColors[index][1].firstLetterUppercased())")!
+            imagesColor.append(image)
+        }
+        
         // Load typeView dataSource
         refreshTypeView()
         
@@ -90,8 +97,8 @@ class ViewController: UIViewController  {
             jdType = text
             refreshTypeView()
             
-        } else if let text = notification.userInfo?["setColor"] as? String {
-            jdColor = text
+        } else if let text = notification.userInfo?["setColor"] as? Int {
+            jdColor = jdColors[text][1]
             refreshTypeView()
             
         } else if let text = notification.userInfo?["setGem"] as? String {
@@ -207,18 +214,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         } else if collectionView == selectColor {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellColor", for: indexPath) as! ImageCollectionViewCell
-            if cell.contentView.subviews.count >= 1 {
-                cell.contentView.subviews[0].removeFromSuperview()
-            }
-            let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-            title.textColor     = UIColor.white
-            title.font          = UIFont.systemFont(ofSize: 14)
-            title.text          = jdColors[indexPath.item][1]
-            title.textAlignment = .center
-            title.adjustsFontSizeToFitWidth = true
-            title.numberOfLines = 2
-            title.backgroundColor = .lightGray
-            cell.contentView.addSubview(title)
+            let image = imagesColor[indexPath.item]
+            cell.tag  = indexPath.item //number of jdColors
+            cell.colorView.image = image
+
+//            if cell.contentView.subviews.count >= 1 {
+//                cell.contentView.subviews[0].removeFromSuperview()
+//            }
+//            let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
+//            title.textColor     = UIColor.white
+//            title.font          = UIFont.systemFont(ofSize: 14)
+//            title.text          = jdColors[indexPath.item][1]
+//            title.textAlignment = .center
+//            title.adjustsFontSizeToFitWidth = true
+//            title.numberOfLines = 2
+//            title.backgroundColor = .lightGray
+//            cell.contentView.addSubview(title)
             return cell
             
         }  else if collectionView == selectGem {

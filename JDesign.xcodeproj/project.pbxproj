@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B157A6A82735281C00477E5C /* MyExstensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B157A6A72735281C00477E5C /* MyExstensions.swift */; };
 		B1D03BA62723F3D3008D7A3F /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */; };
 		B1D03BA927242308008D7A3F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D03BA727242308008D7A3F /* ImageCollectionViewCell.swift */; };
 		B1D03BAA27242308008D7A3F /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D03BA827242308008D7A3F /* ImageCollectionViewCell.xib */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B157A6A72735281C00477E5C /* MyExstensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExstensions.swift; sourceTree = "<group>"; };
 		B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
 		B1D03BA727242308008D7A3F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1D03BA827242308008D7A3F /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -89,8 +91,9 @@
 		B1D03BA12723F168008D7A3F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */,
 				B1D03BAB27249AC5008D7A3F /* Arrays.swift */,
+				B1D03BA52723F3D3008D7A3F /* Dictionaries.swift */,
+				B157A6A72735281C00477E5C /* MyExstensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				B1D07CCC271ACB4B00378A0C /* ViewController.swift in Sources */,
 				B1D07CC8271ACB4B00378A0C /* AppDelegate.swift in Sources */,
 				B1D07CCA271ACB4B00378A0C /* SceneDelegate.swift in Sources */,
+				B157A6A82735281C00477E5C /* MyExstensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +503,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,6 +532,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

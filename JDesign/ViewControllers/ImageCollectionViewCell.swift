@@ -13,10 +13,10 @@ import UIKit
 //}
 
 class ImageCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var photoView: UIImageView!
-    
-    //weak var delegate: CurrentCellTypeDelegate?
-    
+    @IBOutlet weak var colorView: UIImageView!
+     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,13 +40,14 @@ class ImageCollectionViewCell: UICollectionViewCell {
                 
             } else if self.reuseIdentifier == "cellColor" {
                 backgroundColor = isSelected ? .orange : .clear
-                let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
-                
-                var labelText = ""
-                for label in labels {
-                    labelText = label.text!
-                }
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setColor": labelText])
+//                let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
+//
+//                var labelText = ""
+//                for label in labels {
+//                    labelText = label.text!
+//                }
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setColor": self.tag])
                 
             } else if self.reuseIdentifier == "cellGem" {
                 backgroundColor = isSelected ? .orange : .clear
