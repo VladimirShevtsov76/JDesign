@@ -108,6 +108,15 @@ class ViewController: UIViewController  {
         }
     }
     
+    @IBAction func pinchAction(_ sender: UIPinchGestureRecognizer) {
+        
+        if sender.state == .ended {
+            mainImage.transform = CGAffineTransform.identity
+            return
+        }
+        
+        mainImage.transform = CGAffineTransform.init(scaleX: sender.scale, y: sender.scale)
+    }
     
     //************************************
     fileprivate func setGestures() {
