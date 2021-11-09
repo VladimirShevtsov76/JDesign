@@ -5,7 +5,7 @@
 //  Created by Vladimir Shevtsov on 23.10.2021.
 //
 
-public func arrayFiltererd(jdColor: String, jdType: String, jdGem: String) -> Any {
+func arrayFiltererd(jdColor: String, jdType: String, jdGem: String) -> [[String]] {
     
     //let text  = "001.00032.02.01.001"
     //let index = "0123456789111111111"
@@ -31,3 +31,16 @@ public func arrayFiltererd(jdColor: String, jdType: String, jdGem: String) -> An
     return jdImagesFiltered
 }
 
+func getCurrentKitArray(crntArtikul: String) -> [[String]] {
+    
+    //let text  = "001.00032.02.01.001"
+    //let index = "0123456789111111111"
+    //            "          012345678"
+    var jdImagesFiltered = jdImages
+   
+    let currentKit = crntArtikul.subStr(begin: 0, end: 2)
+        
+        jdImagesFiltered = jdImagesFiltered.filter({ $0[1][$0[1].index($0[1].startIndex, offsetBy: 0)...$0[1].index($0[1].startIndex, offsetBy: 2)] == currentKit})
+           
+    return jdImagesFiltered
+}

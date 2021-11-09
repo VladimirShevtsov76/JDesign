@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xrz-pV-C01">
+                            <collectionView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xrz-pV-C01">
                                 <rect key="frame" x="329" y="44" width="80" height="684"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
@@ -31,7 +31,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="FcV-Nj-OwN" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
+                                    <collectionViewCell clipsSubviews="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="FcV-Nj-OwN" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
                                         <rect key="frame" x="-1.5" y="0.0" width="83" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Q6n-Tq-aQs">
@@ -51,12 +51,12 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="83" height="77"/>
                                         <connections>
-                                            <outlet property="photoView" destination="DHK-6S-ofZ" id="PkR-BL-aYb"/>
+                                            <outlet property="photoView" destination="DHK-6S-ofZ" id="2Nh-bx-OFN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DnQ-h1-qIa" customClass="KitView" customModule="JDesign" customModuleProvider="target">
+                            <collectionView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DnQ-h1-qIa">
                                 <rect key="frame" x="5" y="44" width="319" height="80"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
@@ -69,14 +69,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="Sxh-qE-qmJ" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
+                                    <collectionViewCell clipsSubviews="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImageKit" id="Sxh-qE-qmJ" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="80" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="eks-tC-uZO">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="78"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-IZ-ENo">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-IZ-ENo" userLabel="KitPhotoView">
                                                     <rect key="frame" x="1" y="1" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="IEP-yz-zsc"/>
@@ -95,12 +95,12 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="80" height="78"/>
                                         <connections>
-                                            <outlet property="photoView" destination="zwr-IZ-ENo" id="CfI-bX-beh"/>
+                                            <outlet property="kitPhotoView" destination="zwr-IZ-ENo" id="UVY-3F-FOO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-jJ-nFA" customClass="KitView" customModule="JDesign" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-jJ-nFA">
                                 <rect key="frame" x="5" y="521" width="319" height="80"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
@@ -115,14 +115,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="KMH-hV-3ZU" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cellImage" id="KMH-hV-3ZU" userLabel="cellImageBasket" customClass="ImageCollectionViewCell" customModule="JDesign" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="80" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="uL3-sU-4pI">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="78"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zqg-Nt-6Yo">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zqg-Nt-6Yo" userLabel="BasketPhotoView">
                                                     <rect key="frame" x="1" y="1" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="BBb-pO-vVI"/>
@@ -141,7 +141,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="80" height="78"/>
                                         <connections>
-                                            <outlet property="photoView" destination="Zqg-Nt-6Yo" id="OLg-3a-6gV"/>
+                                            <outlet property="BasketPhotoView" destination="Zqg-Nt-6Yo" id="jFM-UK-4IN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -253,7 +253,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="80" height="80"/>
                                         <connections>
-                                            <outlet property="colorView" destination="EFK-PB-2rR" id="9Yd-Jk-sOX"/>
+                                            <outlet property="colorView" destination="EFK-PB-2rR" id="VfT-J5-Kmp"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -312,7 +312,8 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="currentArticul" destination="rtE-i0-vcI" id="eeM-fk-n5u"/>
+                        <outlet property="basketView" destination="KcP-jJ-nFA" id="Y25-4I-qzo"/>
+                        <outlet property="currentArticulLabel" destination="rtE-i0-vcI" id="eeM-fk-n5u"/>
                         <outlet property="kitView" destination="DnQ-h1-qIa" id="b1G-gj-jNm"/>
                         <outlet property="mainImage" destination="eH2-JO-Xzl" id="ggD-bG-BbM"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="C1i-mP-KgM"/>

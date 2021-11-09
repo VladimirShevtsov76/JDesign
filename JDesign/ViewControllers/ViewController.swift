@@ -22,19 +22,23 @@ class ViewController: UIViewController  {
     var imagesKit   = [UIImage]()
     var imagesColor = [UIImage]()
     
-    var filteredJdImages = jdImages
+    var filteredJdImages    = jdImages
+    var filteredJdImagesKit = jdImages
+    
+    var currentArtikul = ""
     
     @IBOutlet var       mainView:        UIView!
     @IBOutlet weak var  mainImage:       UIImageView!
     
     @IBOutlet weak var  kitView:         UICollectionView!
     @IBOutlet weak var  typeView:        UICollectionView!
+    @IBOutlet weak var  basketView:      UICollectionView!
     
     @IBOutlet weak var  selectCostType:  UICollectionView!
     @IBOutlet weak var  selectColor:     UICollectionView!
     @IBOutlet weak var  selectGem:       UICollectionView!
     
-    @IBOutlet weak var  currentArticul:  UILabel!
+    @IBOutlet weak var  currentArticulLabel:  UILabel!
     
     override func viewDidLoad() {
         
@@ -70,9 +74,9 @@ class ViewController: UIViewController  {
     }
     
     
-    //Main refres func of typeView
+    //Main refresh func of typeView
     func refreshTypeView() {
-        filteredJdImages = arrayFiltererd(jdColor: jdColor, jdType: jdType, jdGem: jdGem) as! [[String]]
+        filteredJdImages = arrayFiltererd(jdColor: jdColor, jdType: jdType, jdGem: jdGem)
         imagesType.removeAll()
         
         for index in filteredJdImages.indices {
@@ -83,6 +87,19 @@ class ViewController: UIViewController  {
         typeView.reloadData()
     }
     
+    //refresh func of Kit view
+    func refreshKitView() {
+        filteredJdImagesKit = getCurrentKitArray(crntArtikul: currentArtikul)
+        imagesKit.removeAll()
+        
+        for index in filteredJdImagesKit.indices {
+            let image = UIImage(named: "\(filteredJdImagesKit[index][0])")!
+            imagesKit.append(image)
+        }
+        
+        kitView.reloadData()
+    }
+    
     //Processing of all notifications
     @objc func processingMessage(_ notification: Notification) {
         
@@ -90,9 +107,19 @@ class ViewController: UIViewController  {
             if (text-1) >= imagesType.count || text == 0 {
                 text = 1
             }
-            mainImage.image     = imagesType[text-1]
-            currentArticul.text = filteredJdImages[text-1][1]
+            mainImage.image          = imagesType[text-1]
+            currentArtikul           = filteredJdImages[text-1][1]
+            currentArticulLabel.text = filteredJdImages[text-1][1]
+            refreshKitView()
             
+        } else if var text = notification.userInfo?["setMainImageKit"] as? Int {
+            if (text-1) >= imagesKit.count || text == 0 {
+                text = 1
+            }
+            mainImage.image          = imagesKit[text-1]
+            currentArtikul           = filteredJdImagesKit[text-1][1]
+            currentArticulLabel.text = filteredJdImagesKit[text-1][1]
+             
         } else if let text = notification.userInfo?["setCostType"] as? String {
             jdType = text
             refreshTypeView()
@@ -168,13 +195,27 @@ class ViewController: UIViewController  {
 //typeView extensions
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == kitView {
+            //let cell = collectionView.cellForItem(at: indexPath)
+            //cell?.layer.borderWidth = 3.0
+            //cell?.layer.borderColor = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4).cgColor
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImageKit": indexPath.item + 1])
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 0.0
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == typeView {
             return imagesType.count
             
         } else if collectionView == kitView {
-            return imagesType.count
+            return imagesKit.count
             
         } else if collectionView == selectCostType {
             return jdTypes.count
@@ -197,10 +238,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             return cell
             
         } else if collectionView == kitView {
-            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cellImage", for: indexPath) as! ImageCollectionViewCell
-            let image = imagesType[indexPath.item]
+            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cellImageKit", for: indexPath) as! ImageCollectionViewCell
+            let image = imagesKit[indexPath.item]
             cell.tag  = indexPath.item + 1 //name of image file
-            cell.photoView.image = image
+            cell.kitPhotoView.image = image
             return cell
             
         } else if collectionView == selectCostType {

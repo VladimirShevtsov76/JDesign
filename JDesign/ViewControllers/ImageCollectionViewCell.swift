@@ -15,8 +15,10 @@ import UIKit
 class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var kitPhotoView: UIImageView!
+    @IBOutlet weak var BasketPhotoView: UIImageView!
     @IBOutlet weak var colorView: UIImageView!
-     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +30,13 @@ class ImageCollectionViewCell: UICollectionViewCell {
                 backgroundColor = isSelected ? .black : .clear
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": self.tag])
                 
-            } else if self.reuseIdentifier == "cellCostType" {
+            }
+//            else if self.reuseIdentifier == "cellImageKit" {
+//                    backgroundColor = isSelected ? .black : .clear
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImageKit": self.tag])
+//
+//            }
+            else if self.reuseIdentifier == "cellCostType" {
                 backgroundColor = isSelected ? .orange : .clear
                 let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
                 
