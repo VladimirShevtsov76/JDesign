@@ -28,14 +28,14 @@ class ImageCollectionViewCell: UICollectionViewCell {
         didSet {
             if self.reuseIdentifier == "cellImage" {
                 backgroundColor = isSelected ? .black : .clear
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": self.tag])
+                //NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": self.tag])
                 
             }
-//            else if self.reuseIdentifier == "cellImageKit" {
-//                    backgroundColor = isSelected ? .black : .clear
-//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImageKit": self.tag])
-//
-//            }
+            else if self.reuseIdentifier == "cellImageKit" {
+                    backgroundColor = isSelected ? .black : .clear
+                    //NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImageKit": self.tag])
+
+            }
             else if self.reuseIdentifier == "cellCostType" {
                 backgroundColor = isSelected ? .orange : .clear
                 let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
