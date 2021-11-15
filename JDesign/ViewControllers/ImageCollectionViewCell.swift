@@ -37,7 +37,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
             }
             else if self.reuseIdentifier == "cellCostType" {
-                backgroundColor = isSelected ? .orange : .clear
+                backgroundColor = isSelected ?  #colorLiteral(red: 1, green: 0.5005856752, blue: 0.6636529565, alpha: 1): .clear
                 let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
                 
                 var labelText = ""
@@ -47,7 +47,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setCostType": labelText])
                 
             } else if self.reuseIdentifier == "cellColor" {
-                backgroundColor = isSelected ? .orange : .clear
+                backgroundColor = isSelected ? #colorLiteral(red: 1, green: 0.5005856752, blue: 0.6636529565, alpha: 1) : .clear
 //                let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
 //
 //                var labelText = ""
@@ -58,13 +58,13 @@ class ImageCollectionViewCell: UICollectionViewCell {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setColor": self.tag])
                 
             } else if self.reuseIdentifier == "cellGem" {
-                backgroundColor = isSelected ? .orange : .clear
+                backgroundColor = isSelected ? #colorLiteral(red: 1, green: 0.5005856752, blue: 0.6636529565, alpha: 1) : .clear
                 let labels = self.contentView.subviews.compactMap { $0 as? UILabel }
                 
                 var labelText = ""
                 for label in labels {
                     labelText = label.text!
-                    label.backgroundColor = .darkGray
+                    //label.backgroundColor = .darkGray
             }
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setGem": labelText])
             }

@@ -75,7 +75,8 @@ class ViewController: UIViewController  {
         
         // Load typeView dataSource
         refreshTypeView()
-        
+        refreshKitView()
+        currentArticulLabel.text = currentArtikul
     }
     
     
@@ -285,14 +286,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             if cell.contentView.subviews.count >= 1 {
                 cell.contentView.subviews[0].removeFromSuperview()
             }
-            let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-            title.textColor     = UIColor.white
+            let title = UILabel(frame: CGRect(x: 2, y: 2, width: cell.bounds.size.width-2, height: cell.bounds.size.height-2))
+            title.textColor     = UIColor.black
             title.font          = UIFont.systemFont(ofSize: 14)
             title.text          = jdTypes[indexPath.item][1]
             title.textAlignment = .center
             title.adjustsFontSizeToFitWidth = true
             title.numberOfLines = 2
-            title.backgroundColor = .lightGray
+            //title.backgroundColor = .lightGray
             cell.contentView.addSubview(title)
             return cell
             
@@ -323,14 +324,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             if cell.contentView.subviews.count >= 1 {
                 cell.contentView.subviews[0].removeFromSuperview()
             }
-            let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-            title.textColor     = UIColor.white
+            let title = UILabel(frame: CGRect(x: 2, y: 2, width: cell.bounds.size.width-2, height: cell.bounds.size.height-2))
+            title.textColor     = UIColor.black
             title.font          = UIFont.systemFont(ofSize: 14)
             title.text          = jdGems[indexPath.item][1]
             title.textAlignment = .center
             title.adjustsFontSizeToFitWidth = true
             title.numberOfLines = 2
-            title.backgroundColor = .lightGray
+            //title.backgroundColor = .lightGray
             cell.contentView.addSubview(title)
             return cell
         }
