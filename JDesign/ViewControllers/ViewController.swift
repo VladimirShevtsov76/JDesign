@@ -31,6 +31,7 @@ class ViewController: UIViewController  {
     
     @IBOutlet weak var  kadrView:        UIView!
     @IBOutlet var       mainView:        UIView!
+    @IBOutlet weak var  mainImageView:   UIView!
     
     @IBOutlet weak var  mainImage:       UIImageView!
     @IBOutlet weak var  kadrImage:       UIImageView!
@@ -130,17 +131,17 @@ class ViewController: UIViewController  {
                 text = 1
             }
             
-            let duration = 0.5
+            let duration = 0.1
             UIView.transition(with: kadrView, duration: duration, options: .transitionCrossDissolve, animations: {
                 self.kadrImage.image          = self.imagesType[text-1]
                 
             }, completion: nil)
-            UIView.transition(with: kadrView, duration: duration, options: .transitionCrossDissolve, animations: {
-                self.kadrImage.image          = self.imagesType[text-1]
+            UIView.transition(with: mainImageView, duration: duration, options: .transitionCrossDissolve, animations: {
+                self.mainImage.image          = self.imagesType[text-1]
                 
             }, completion: nil)
             
-            self.mainImage.image          = self.imagesType[text-1]
+            //self.mainImage.image          = self.imagesType[text-1]
             currentArtikul           = filteredJdImages[text-1][1]
             currentImageNumber       = Int(filteredJdImages[text-1][0]) ?? 0
             currentArticulLabel.text = currentArtikul
@@ -193,9 +194,18 @@ class ViewController: UIViewController  {
         //        mainImage.addGestureRecognizer(swipeRightGesture)
         //        mainImage.addGestureRecognizer(swipeLeftGesture)
         //        mainImage.addGestureRecognizer(swipeUpGesture)
-        mainImage.addGestureRecognizer(swipeDownGesture)
+        mainImageView.addGestureRecognizer(swipeDownGesture)
+        //mainImage.addGestureRecognizer(swipeDownGesture)
     }
     
+    // GestureRecognizer
+    @objc func handleGestureDown(gesture: UISwipeGestureRecognizer) -> Void {
+        //imageNumber = imageNumber - 1
+        //let image = "img_\(imageNumber)_\(imageColor)"
+        //mainImage.image = UIImage(named: image)
+        basketJdImages.append([String(currentImageNumber), currentArtikul])
+        refreshBasketView()
+    }
     // GestureRecognizer
 //    @objc func handleGestureR(gesture: UISwipeGestureRecognizer) -> Void {
 //        imageColor = imageColor - 1
@@ -216,17 +226,7 @@ class ViewController: UIViewController  {
 //        let image = "img_\(imageNumber)_\(imageColor)"
 //        mainImage.image = UIImage(named: image)
 //    }
-    
-    // GestureRecognizer
-    @objc func handleGestureDown(gesture: UISwipeGestureRecognizer) -> Void {
-        //imageNumber = imageNumber - 1
-        //let image = "img_\(imageNumber)_\(imageColor)"
-        //mainImage.image = UIImage(named: image)
-        basketJdImages.append([String(currentImageNumber), currentArtikul])
-        refreshBasketView()
-    }
-    
-    
+        
 }
 
 //typeView extensions
