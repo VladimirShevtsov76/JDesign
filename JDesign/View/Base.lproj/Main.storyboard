@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xrz-pV-C01">
+                            <collectionView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xrz-pV-C01">
                                 <rect key="frame" x="329" y="44" width="80" height="684"/>
                                 <color key="backgroundColor" red="0.97588783502578735" green="0.92291122674942017" blue="0.97572654485702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -270,6 +270,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mC3-xR-OuJ">
+                                <rect key="frame" x="326" y="266" width="88" height="88"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="dVi-WK-lXK">
+                                        <rect key="frame" x="2" y="2" width="84" height="84"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.076877124607563019" green="0.055633679032325745" blue="0.96681588888168335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="dVi-WK-lXK" firstAttribute="top" secondItem="mC3-xR-OuJ" secondAttribute="top" constant="2" id="IIZ-mN-67S"/>
+                                    <constraint firstAttribute="height" constant="88" id="avb-wn-pFh"/>
+                                    <constraint firstAttribute="bottom" secondItem="dVi-WK-lXK" secondAttribute="bottom" constant="2" id="bs8-gC-mO9"/>
+                                    <constraint firstItem="dVi-WK-lXK" firstAttribute="leading" secondItem="mC3-xR-OuJ" secondAttribute="leading" constant="2" id="kne-du-VY0"/>
+                                    <constraint firstAttribute="trailing" secondItem="dVi-WK-lXK" secondAttribute="trailing" constant="2" id="lHd-eu-whg"/>
+                                    <constraint firstAttribute="width" constant="88" id="wLB-vz-loz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,11 +296,13 @@
                             <constraint firstItem="apd-9V-aYn" firstAttribute="top" secondItem="eH2-JO-Xzl" secondAttribute="bottom" constant="5" id="6jg-bj-MUJ"/>
                             <constraint firstItem="Ehb-UT-c0N" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="992-rW-w2g"/>
                             <constraint firstItem="xrz-pV-C01" firstAttribute="leading" secondItem="apd-9V-aYn" secondAttribute="trailing" constant="5" id="BFv-qE-pP8"/>
+                            <constraint firstItem="mC3-xR-OuJ" firstAttribute="top" secondItem="rtE-i0-vcI" secondAttribute="bottom" constant="112" id="Bco-NW-fpp"/>
                             <constraint firstItem="xrz-pV-C01" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DoG-rW-uIG"/>
                             <constraint firstItem="KcP-jJ-nFA" firstAttribute="top" secondItem="apd-9V-aYn" secondAttribute="bottom" constant="5" id="KUA-c4-Uzw"/>
                             <constraint firstItem="xrz-pV-C01" firstAttribute="leading" secondItem="KcP-jJ-nFA" secondAttribute="trailing" constant="5" id="Nd2-mD-Qc1"/>
                             <constraint firstItem="xrz-pV-C01" firstAttribute="leading" secondItem="DnQ-h1-qIa" secondAttribute="trailing" constant="5" id="P3U-Oa-VBf"/>
                             <constraint firstItem="xrz-pV-C01" firstAttribute="leading" secondItem="HXw-Wv-sX2" secondAttribute="trailing" constant="5" id="S5T-4D-oGl"/>
+                            <constraint firstItem="mC3-xR-OuJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tuw-43-TZ1"/>
                             <constraint firstItem="xrz-pV-C01" firstAttribute="leading" secondItem="rtE-i0-vcI" secondAttribute="trailing" constant="5" id="Uim-xy-Mra"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="DnQ-h1-qIa" secondAttribute="top" id="Uyz-WS-0sY"/>
                             <constraint firstItem="OdQ-Ri-PHs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XDb-BU-Ky4"/>
@@ -310,6 +329,8 @@
                     <connections>
                         <outlet property="basketView" destination="KcP-jJ-nFA" id="Y25-4I-qzo"/>
                         <outlet property="currentArticulLabel" destination="rtE-i0-vcI" id="eeM-fk-n5u"/>
+                        <outlet property="kadrImage" destination="dVi-WK-lXK" id="Tvj-7Z-mqF"/>
+                        <outlet property="kadrView" destination="mC3-xR-OuJ" id="guu-Gu-nTW"/>
                         <outlet property="kitView" destination="DnQ-h1-qIa" id="b1G-gj-jNm"/>
                         <outlet property="mainImage" destination="eH2-JO-Xzl" id="ggD-bG-BbM"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="C1i-mP-KgM"/>
@@ -332,6 +353,7 @@
     </scenes>
     <resources>
         <image name="1" width="1125" height="1125"/>
+        <image name="10" width="1125" height="1125"/>
         <image name="JDesign" width="800" height="800"/>
         <image name="Все цвета" width="305" height="305"/>
         <systemColor name="systemBackgroundColor">

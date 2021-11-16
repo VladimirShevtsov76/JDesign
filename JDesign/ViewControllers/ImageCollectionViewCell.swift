@@ -24,10 +24,20 @@ class ImageCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            if self.reuseIdentifier == "cellImage" {
+                //backgroundColor = isSelected ? .black : .clear
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": self.tag])
+                
+            }
+        }
+    }
+    
     override var isSelected: Bool {
         didSet {
             if self.reuseIdentifier == "cellImage" {
-                backgroundColor = isSelected ? .black : .clear
+                //backgroundColor = isSelected ? .black : .clear
                 //NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": self.tag])
                 
             }

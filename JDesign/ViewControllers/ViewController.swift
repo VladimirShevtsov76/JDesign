@@ -29,8 +29,11 @@ class ViewController: UIViewController  {
     var currentArtikul     = jdImages[0][1]
     var currentImageNumber = Int(jdImages[0][0]) ?? 0
     
+    @IBOutlet weak var  kadrView:        UIView!
     @IBOutlet var       mainView:        UIView!
+    
     @IBOutlet weak var  mainImage:       UIImageView!
+    @IBOutlet weak var  kadrImage:       UIImageView!
     
     @IBOutlet weak var  kitView:         UICollectionView!
     @IBOutlet weak var  typeView:        UICollectionView!
@@ -126,7 +129,18 @@ class ViewController: UIViewController  {
             if (text-1) >= imagesType.count || text == 0 {
                 text = 1
             }
-            mainImage.image          = imagesType[text-1]
+            
+            let duration = 0.5
+            UIView.transition(with: kadrView, duration: duration, options: .transitionCrossDissolve, animations: {
+                self.kadrImage.image          = self.imagesType[text-1]
+                
+            }, completion: nil)
+            UIView.transition(with: kadrView, duration: duration, options: .transitionCrossDissolve, animations: {
+                self.kadrImage.image          = self.imagesType[text-1]
+                
+            }, completion: nil)
+            
+            self.mainImage.image          = self.imagesType[text-1]
             currentArtikul           = filteredJdImages[text-1][1]
             currentImageNumber       = Int(filteredJdImages[text-1][0]) ?? 0
             currentArticulLabel.text = currentArtikul
@@ -217,11 +231,12 @@ class ViewController: UIViewController  {
 
 //typeView extensions
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == typeView {
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": indexPath.item + 1])
+            
             
         } else if collectionView == kitView {
 
@@ -304,18 +319,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             cell.tag  = indexPath.item //number of jdColors
             cell.colorView.image = image
 
-//            if cell.contentView.subviews.count >= 1 {
-//                cell.contentView.subviews[0].removeFromSuperview()
-//            }
-//            let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-//            title.textColor     = UIColor.white
-//            title.font          = UIFont.systemFont(ofSize: 14)
-//            title.text          = jdColors[indexPath.item][1]
-//            title.textAlignment = .center
-//            title.adjustsFontSizeToFitWidth = true
-//            title.numberOfLines = 2
-//            title.backgroundColor = .lightGray
-//            cell.contentView.addSubview(title)
             return cell
             
         }  else if collectionView == selectGem {
