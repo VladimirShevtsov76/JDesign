@@ -11,19 +11,19 @@ let myNoteKey = "com.vladimirshevtsov.specialNotificationKey"
 
 class ViewController: UIViewController  {
     
-    var imageColor  = 1
+    var imageColor   = 1
     
-    var jdColor = jdColors[0][1]
-    var jdType  = jdTypes[0][1]
-    var jdGem   = jdGems[0][1]
+    var jdColor      = jdColors[0][1]
+    var jdType       = jdTypes[0][1]
+    var jdGem        = jdGems[0][1]
     
     var imagesType   = [UIImage]()
     var imagesKit    = [UIImage]()
     var imagesColor  = [UIImage]()
     var imagesBasket = [UIImage]()
     
-    var filteredJdImages    = jdImages
-    var filteredJdImagesKit = jdImages
+    var filteredJdImages                = jdImages
+    var filteredJdImagesKit             = jdImages
     var basketJdImages: Array<[String]> = Array()
     
     var currentArtikul     = jdImages[0][1]
@@ -112,7 +112,6 @@ class ViewController: UIViewController  {
     
     //refresh func of basketView
     func refreshBasketView() {
-        //filteredJdImages = arrayFiltererd(jdColor: jdColor, jdType: jdType, jdGem: jdGem)
         imagesBasket.removeAll()
         
         for index in basketJdImages.indices {
@@ -126,7 +125,8 @@ class ViewController: UIViewController  {
     //Processing of all notifications
     @objc func processingMessage(_ notification: Notification) {
         
-        if var text = notification.userInfo?["setMainImage"] as? Int {
+        if let txt = notification.userInfo?["setMainImage"] as? Int {
+            var text = txt
             if (text-1) >= imagesType.count || text == 0 {
                 text = 1
             }
@@ -141,13 +141,13 @@ class ViewController: UIViewController  {
                 
             }, completion: nil)
             
-            //self.mainImage.image          = self.imagesType[text-1]
             currentArtikul           = filteredJdImages[text-1][1]
             currentImageNumber       = Int(filteredJdImages[text-1][0]) ?? 0
             currentArticulLabel.text = currentArtikul
             refreshKitView()
             
-        } else if var text = notification.userInfo?["setMainImageKit"] as? Int {
+        } else if let txt = notification.userInfo?["setMainImageKit"] as? Int {
+            var text = txt
             if (text-1) >= imagesKit.count || text == 0 {
                 text = 1
             }
@@ -167,6 +167,10 @@ class ViewController: UIViewController  {
         } else if let text = notification.userInfo?["setGem"] as? String {
             jdGem = text
             refreshTypeView()
+        
+        } else if let text = notification.userInfo?["delBasketGem"] as? Int {
+            basketJdImages.remove(at: text)
+            refreshBasketView()
             
         }
     }
@@ -183,49 +187,16 @@ class ViewController: UIViewController  {
     
     //************************************
     fileprivate func setGestures() {
-//        let swipeRightGesture       = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureR(gesture:)))
-//        let swipeLeftGesture        = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureL(gesture:)))
-//        let swipeUpGesture          = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureUp(gesture:)))
         let swipeDownGesture        = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureDown(gesture:)))
-//        swipeRightGesture.direction = UISwipeGestureRecognizer.Direction.right
-//        swipeLeftGesture.direction  = UISwipeGestureRecognizer.Direction.left
-//        swipeUpGesture.direction    = UISwipeGestureRecognizer.Direction.up
         swipeDownGesture.direction  = UISwipeGestureRecognizer.Direction.down
-        //        mainImage.addGestureRecognizer(swipeRightGesture)
-        //        mainImage.addGestureRecognizer(swipeLeftGesture)
-        //        mainImage.addGestureRecognizer(swipeUpGesture)
         mainImageView.addGestureRecognizer(swipeDownGesture)
-        //mainImage.addGestureRecognizer(swipeDownGesture)
     }
     
     // GestureRecognizer
     @objc func handleGestureDown(gesture: UISwipeGestureRecognizer) -> Void {
-        //imageNumber = imageNumber - 1
-        //let image = "img_\(imageNumber)_\(imageColor)"
-        //mainImage.image = UIImage(named: image)
         basketJdImages.append([String(currentImageNumber), currentArtikul])
         refreshBasketView()
     }
-    // GestureRecognizer
-//    @objc func handleGestureR(gesture: UISwipeGestureRecognizer) -> Void {
-//        imageColor = imageColor - 1
-//        let image = "img_\(imageNumber)_\(imageColor)"
-//        mainImage.image = UIImage(named: image)
-//    }
-//
-//    // GestureRecognizer
-//    @objc func handleGestureL(gesture: UISwipeGestureRecognizer) -> Void {
-//        imageColor = imageColor + 1
-//        let image = "img_\(imageNumber)_\(imageColor)"
-//        mainImage.image = UIImage(named: image)
-//    }
-//
-//    // GestureRecognizer
-//    @objc func handleGestureUp(gesture: UISwipeGestureRecognizer) -> Void {
-//        imageNumber = imageNumber + 1
-//        let image = "img_\(imageNumber)_\(imageColor)"
-//        mainImage.image = UIImage(named: image)
-//    }
         
 }
 
@@ -245,10 +216,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-//        let cell = collectionView.cellForItem(at: indexPath)
-//        cell?.layer.borderWidth = 0.0
-//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -291,7 +258,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         } else if collectionView == basketView {
             let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cellImageBasket", for: indexPath) as! ImageCollectionViewCell
             let image = imagesBasket[indexPath.item]
-            cell.tag  = indexPath.item + 1 //name of image file
+            cell.tag  = indexPath.item //number of array in basket
             cell.BasketPhotoView.image = image
             return cell
             

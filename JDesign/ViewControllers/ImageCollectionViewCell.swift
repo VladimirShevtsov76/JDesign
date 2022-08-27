@@ -7,11 +7,6 @@
 import Foundation
 import UIKit
 
-//protocol CurrentCellTypeDelegate: AnyObject {
-//    
-//    func setMainImage(number: Int)
-//}
-
 class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoView: UIImageView!
@@ -22,6 +17,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setGestures()
     }
     
     override var isHighlighted: Bool {
@@ -80,4 +76,23 @@ class ImageCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    //************************************
+    fileprivate func setGestures() {
+        if BasketPhotoView == nil {
+            return
+        }
+        
+        let swipeUpGesture          = UISwipeGestureRecognizer(target: self, action: #selector(handleGestureUp(gesture:)))
+        swipeUpGesture.direction    = UISwipeGestureRecognizer.Direction.up
+        BasketPhotoView.addGestureRecognizer(swipeUpGesture)
+    }
+    
+    // GestureRecognizer
+    @objc func handleGestureUp(gesture: UISwipeGestureRecognizer) -> Void {
+        var labelText = 0
+        labelText = BasketPhotoView.superview?.superview?.tag ?? 0
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["delBasketGem": labelText])
+    }
+    
 }
