@@ -50,6 +50,12 @@ class ViewController: UIViewController  {
         
         super.viewDidLoad()
         
+//        if #available(iOS 15.0, *) {
+//            typeView.allowsFocus = true
+//        } else {
+//            // Fallback on earlier versions
+//        }
+        
         setGestures()
         
         typeView.dataSource       = self
@@ -79,6 +85,7 @@ class ViewController: UIViewController  {
         
         // Load typeView dataSource
         refreshTypeView()
+        reflectCentralCell(typeView)
         refreshKitView()
         currentArticulLabel.text = currentArtikul
     }
@@ -197,12 +204,48 @@ class ViewController: UIViewController  {
         basketJdImages.append([String(currentImageNumber), currentArtikul])
         refreshBasketView()
     }
+       
+    //Reflect central cell of typeView
+    func reflectCentralCell(_ collectionView: UICollectionView) {
+        if collectionView !== typeView {
+            return
+        }
         
+        let visibleRect      = CGRect(origin: typeView.contentOffset, size: typeView.bounds.size)
+        let visiblePoint     = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
+        
+        
+        let curTag = (visibleIndexPath?.item ?? 0)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": curTag ])
+    }
 }
 
 //typeView extensions
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-     
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        didEndDisplaying
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath ) {
+        
+        reflectCentralCell(collectionView)
+        
+//        if collectionView !== typeView {
+//            return
+//        }
+//
+//        let visibleRect      = CGRect(origin: typeView.contentOffset, size: typeView.bounds.size)
+//        let visiblePoint     = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+//        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
+//
+//
+//        let curTag = (visibleIndexPath?.item ?? 0) + 1
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: myNoteKey ), object: nil, userInfo: ["setMainImage": curTag ])
+    }
+    
+        
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == typeView {
             
